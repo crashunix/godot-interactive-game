@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7o8pxfej6pcx"]
+
+[ext_resource type="Script" path="res://scenes/finish_line/FinishLine.cs" id="1_tw5rk"]
+
+[node name="FinishLine" type="Area2D"]
+script = ExtResource("1_tw5rk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
