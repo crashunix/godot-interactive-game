@@ -7,18 +7,34 @@ script = ExtResource("1_1uga7")
 
 [node name="Play" type="Button" parent="."]
 offset_left = 462.0
-offset_top = 203.0
+offset_top = 78.0
 offset_right = 687.0
-offset_bottom = 286.0
-text = "Play"
+offset_bottom = 161.0
+text = "Jogar Presidentes Brasil"
+
+[node name="Play2" type="Button" parent="."]
+offset_left = 462.0
+offset_top = 178.0
+offset_right = 687.0
+offset_bottom = 261.0
+text = "Jogar Presidentes EUA"
+
+[node name="Play3" type="Button" parent="."]
+offset_left = 462.0
+offset_top = 278.0
+offset_right = 687.0
+offset_bottom = 361.0
+text = "Jogar Países"
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 462.0
-offset_top = 307.0
+offset_top = 518.0
 offset_right = 687.0
-offset_bottom = 390.0
+offset_bottom = 601.0
 tooltip_text = "Sair do jogo"
 text = "Quit"
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed" binds= [0]]
+[connection signal="pressed" from="Play2" to="." method="_on_play_pressed" binds= [1]]
+[connection signal="pressed" from="Play3" to="." method="_on_play_pressed" binds= [2]]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

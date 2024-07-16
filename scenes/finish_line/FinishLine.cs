@@ -6,7 +6,7 @@ public partial class FinishLine : Area2D
 
     public override void _Ready()
     {
-        gameManager = (GameManager)GetNode("%GameManager");
+        gameManager = (GameManager)GetNode("/root/GameManager");
     }
 
     public void _on_body_entered(Node2D body)

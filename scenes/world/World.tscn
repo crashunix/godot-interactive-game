@@ -1,29 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://3g0lko7c0ulu"]
 
-[ext_resource type="Script" path="res://scripts/managers/GameManager.cs" id="1_ctxw0"]
 [ext_resource type="Script" path="res://scenes/world/World.cs" id="1_sht52"]
-[ext_resource type="Texture2D" uid="uid://cjwbqj6j0t7b4" path="res://assets/board.png" id="2_qt2co"]
+[ext_resource type="VideoStream" path="res://assets/video.ogv" id="2_hksfk"]
+[ext_resource type="Texture2D" uid="uid://cvflcgdqlan46" path="res://assets/board.png" id="2_qt2co"]
 [ext_resource type="PackedScene" uid="uid://7o8pxfej6pcx" path="res://scenes/finish_line/FinishLine.tscn" id="4_8gxdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wes3w"]
-size = Vector2(144, 490)
+size = Vector2(143, 490)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sht52")
 
-[node name="WebSocket" type="Node" parent="."]
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_ctxw0")
-
-[node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = 59.0
-offset_top = 54.0
-offset_right = 219.0
-offset_bottom = 104.0
-theme_override_font_sizes/font_size = 36
-text = "Brasil: 10"
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -12.0
+offset_right = 1268.0
+offset_bottom = 758.0
+stream = ExtResource("2_hksfk")
+volume_db = -80.0
+autoplay = true
+loop = true
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(578, 400)
@@ -34,4 +29,5 @@ texture = ExtResource("2_qt2co")
 position = Vector2(1085, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_wes3w")

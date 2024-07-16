@@ -4,19 +4,19 @@ using System.Collections.Generic;
 public partial class GameManager : Node
 {
     private Dictionary<string, int> scores = new Dictionary<string, int>();
-    private Label scoreLabel;
+    private int SelectedType = 0;
 
     public override void _Ready()
     {
-        scoreLabel = GetNode<Label>("ScoreLabel");
-        if (scoreLabel != null)
-        {
-            UpdateScoreLabel();
-        }
-        else
-        {
-            GD.PrintErr("ScoreLabel not found!");
-        }
+        GD.Print("[GameManager] ~ i'm ready!");
+    }
+
+    public void SetSelectedType(int type) {
+        SelectedType = type;
+    }
+
+    public int GetSelectedType() {
+        return SelectedType;
     }
 
     public void AddPoint(string playerName)
@@ -27,20 +27,6 @@ public partial class GameManager : Node
         }
         scores[playerName]++;
         GD.Print($"{playerName} now has {scores[playerName]} points");
-
-        UpdateScoreLabel();
-    }
-
-    private void UpdateScoreLabel()
-    {
-        if (scoreLabel != null)
-        {
-            scoreLabel.Text = "";
-            foreach (var score in scores)
-            {
-                scoreLabel.Text += $"{score.Key}: {score.Value}  ";
-            }
-        }
     }
 
     public void ResetScores()
