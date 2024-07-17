@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6qmod146yhsd"]
+
+[ext_resource type="Script" path="res://scenes/score_entry/ScoreEntry.cs" id="1_b55rq"]
+[ext_resource type="Texture2D" uid="uid://b2ij6hbg01dgj" path="res://assets/japao.png" id="2_d6te7"]
+[ext_resource type="Texture2D" uid="uid://bicb3qpv0xj1b" path="res://assets/trofeu.png" id="3_ifvot"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(100, 75)
+offset_right = 358.0
+offset_bottom = 75.0
+script = ExtResource("1_b55rq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 300.0
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_d6te7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "日本"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_left = 9.0
+offset_top = 13.0
+offset_right = 521.0
+offset_bottom = 525.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_ifvot")
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "110"

@@ -19,16 +19,6 @@ public partial class GameManager : Node
         return SelectedType;
     }
 
-    public void AddPoint(string playerName)
-    {
-        if (!scores.ContainsKey(playerName))
-        {
-            scores[playerName] = 0;
-        }
-        scores[playerName]++;
-        GD.Print($"{playerName} now has {scores[playerName]} points");
-    }
-
     public void ResetScores()
     {
         scores.Clear();

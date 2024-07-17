@@ -13,7 +13,12 @@ public partial class Player : CharacterBody2D
 
     [Export] public string PlayerName = "Player";
     [Export] public string SpritePath;
-    [Export] public string InputAction = "ui_right";
+    [Export] public string InputAction = "player_one";
+
+    [Export] public int Score = 0;
+
+    [Signal]
+    public delegate void ScoreUpdatedEventHandler(int score);
 
     public override void _Ready()
     {
@@ -75,5 +80,12 @@ public partial class Player : CharacterBody2D
         Position = initialPosition;
         isMoving = false;
         movementQueue.Clear(); // Limpa a fila ao resetar a posição
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+        EmitSignal(nameof(ScoreUpdated), Score);
+        GD.Print($"{PlayerName} now has {Score} points");
     }
 }
