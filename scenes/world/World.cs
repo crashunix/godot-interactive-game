@@ -33,10 +33,12 @@ public partial class World : Node2D
 			};
 		} else {
 			_playersInfo = new List<PlayerInfo>() {
-				new PlayerInfo("EUA", "res://assets/eua.png", "player_one"),
-				new PlayerInfo("Eslovênia", "res://assets/eslovenia.png", "player_two"),
-				new PlayerInfo("Brasil", "res://assets/brasil.png", "player_three"),
-				new PlayerInfo("Japão", "res://assets/japao.png", "player_four")
+				new PlayerInfo("USA", "res://assets/eua.png", "player_one"),
+				new PlayerInfo("Mexico", "res://assets/mexico.png", "player_two"),
+				new PlayerInfo("Ukraine", "res://assets/ucrania.png", "player_three"),
+				new PlayerInfo("Australia", "res://assets/australia.png", "player_four"),
+				new PlayerInfo("Israel", "res://assets/israel.png", "player_five"),
+				new PlayerInfo("Palestine", "res://assets/palestina.png", "player_six")
 			};
 		}
 
