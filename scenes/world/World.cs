@@ -23,22 +23,22 @@ public partial class World : Node2D
 
 		if (gameManager.GetSelectedType() == 0) {
 			_playersInfo = new List<PlayerInfo>() {
-				new PlayerInfo("Bolsonaro", "res://assets/bolsonaro.png", "player_one"),
-				new PlayerInfo("Lula", "res://assets/lula.png", "player_two"),
+				new PlayerInfo("1", "Bolsonaro", "res://assets/bolsonaro.png", "player_one"),
+				new PlayerInfo("2", "Lula", "res://assets/lula.png", "player_two"),
 			};
 		} else if (gameManager.GetSelectedType() == 1) {
 			_playersInfo = new List<PlayerInfo>() {
-				new PlayerInfo("Trump", "res://assets/trump.png", "player_one"),
-				new PlayerInfo("Biden", "res://assets/biden.png", "player_two"),
+				new PlayerInfo("1", "Trump", "res://assets/trump.png", "player_one"),
+				new PlayerInfo("2", "Biden", "res://assets/biden.png", "player_two"),
 			};
 		} else {
 			_playersInfo = new List<PlayerInfo>() {
-				new PlayerInfo("USA", "res://assets/eua.png", "player_one"),
-				new PlayerInfo("Mexico", "res://assets/mexico.png", "player_two"),
-				new PlayerInfo("Ukraine", "res://assets/ucrania.png", "player_three"),
-				new PlayerInfo("Australia", "res://assets/australia.png", "player_four"),
-				new PlayerInfo("Israel", "res://assets/israel.png", "player_five"),
-				new PlayerInfo("Palestine", "res://assets/palestina.png", "player_six")
+				new PlayerInfo("1", "USA", "res://assets/eua.png", "player_one"),
+				new PlayerInfo("2", "Mexico", "res://assets/mexico.png", "player_two"),
+				new PlayerInfo("3", "Ukraine", "res://assets/ucrania.png", "player_three"),
+				new PlayerInfo("4", "Australia", "res://assets/australia.png", "player_four"),
+				new PlayerInfo("5", "Israel", "res://assets/israel.png", "player_five"),
+				new PlayerInfo("6", "Palestine", "res://assets/palestina.png", "player_six")
 			};
 		}
 
@@ -46,14 +46,15 @@ public partial class World : Node2D
 		_playerScene = (PackedScene)ResourceLoader.Load("res://scenes/player/Player.tscn");
 		_scoreEntryScene = (PackedScene)ResourceLoader.Load("res://scenes/score_entry/ScoreEntry.tscn");
 
-		Vector2 initialPosition = new Vector2(50, 200);
+		Vector2 initialPosition = new Vector2(50, 170);
 
-		float yOffset = 80.0f;
+		float yOffset = 75.9f;
 
 		foreach (var playerInfo in _playersInfo)
 		{
 			Player player = (Player)_playerScene.Instantiate();
 
+			player.PlayerId = playerInfo.Id;
 			player.PlayerName = playerInfo.Name;
 			player.SpritePath = playerInfo.SpritePath;
 			player.InputAction = playerInfo.InputAction;
@@ -74,6 +75,8 @@ public partial class World : Node2D
 			// Carregar e definir a textura do jogador
             Texture2D playerTexture = (Texture2D)GD.Load(player.SpritePath);
             scoreEntry.SetPlayerTexture(playerTexture);
+
+            scoreEntry.SetPlayerId(player.PlayerId);
 
 			// Conectar o sinal para atualizar a pontuação
             player.Connect("ScoreUpdated", new Callable(scoreEntry, "SetScore"));

@@ -11,6 +11,7 @@ public partial class Player : CharacterBody2D
     private Vector2 targetPosition;
     private Queue<Vector2> movementQueue = new Queue<Vector2>(); // Fila de movimentos
 
+    [Export] public string PlayerId = "1";
     [Export] public string PlayerName = "Player";
     [Export] public string SpritePath;
     [Export] public string InputAction = "player_one";
