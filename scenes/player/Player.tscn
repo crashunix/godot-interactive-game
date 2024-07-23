@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ewmqnjwmm212"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.cs" id="1_17voe"]
-[ext_resource type="Texture2D" uid="uid://cc44kvocshhvu" path="res://assets/brasil.png" id="2_nitoa"]
+[ext_resource type="Texture2D" uid="uid://cc44kvocshhvu" path="res://assets/countries/brasil.png" id="2_nitoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsx66"]
 size = Vector2(68, 68)

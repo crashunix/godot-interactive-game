@@ -11,9 +11,9 @@ public partial class ScoreEntry : VBoxContainer
 	{
 		// Verifique se os nós foram encontrados corretamente
 		playerId = GetNode<Label>("PlayerId");
-		playerTextureRect = GetNode<TextureRect>("HBoxContainer/ColorRect/TextureRect");
-		playerNameLabel = GetNode<Label>("HBoxContainer/VBoxContainer/PlayerNameLabel");
-		scoreLabel = GetNode<Label>("HBoxContainer/VBoxContainer/HBoxContainer/ScoreLabel");
+		playerTextureRect = GetNode<TextureRect>("ColorRect/TextureRect");
+		playerNameLabel = GetNode<Label>("PlayerNameLabel");
+		scoreLabel = GetNode<Label>("HBoxContainer/ScoreLabel");
 
 		playerId.Text = "#1";
 		playerNameLabel.Text = "Player";
