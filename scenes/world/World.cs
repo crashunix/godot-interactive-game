@@ -67,38 +67,38 @@ public partial class World : Node2D
 			initialPosition.Y += yOffset;
 
 			// Instanciar e adicionar o placar do jogador
-            ScoreEntry scoreEntry = (ScoreEntry)_scoreEntryScene.Instantiate();
+			ScoreEntry scoreEntry = (ScoreEntry)_scoreEntryScene.Instantiate();
 			scoreEntry.Position = new Vector2(yOffset, yOffset);
-            scoreGrid.AddChild(scoreEntry);
-            scoreEntry.SetPlayerName(player.PlayerName);
+			scoreGrid.AddChild(scoreEntry);
+			scoreEntry.SetPlayerName(player.PlayerName);
 			
 			// Carregar e definir a textura do jogador
-            Texture2D playerTexture = (Texture2D)GD.Load(player.SpritePath);
-            scoreEntry.SetPlayerTexture(playerTexture);
+			Texture2D playerTexture = (Texture2D)GD.Load(player.SpritePath);
+			scoreEntry.SetPlayerTexture(playerTexture);
 
-            scoreEntry.SetPlayerId(player.PlayerId);
+			scoreEntry.SetPlayerId(player.PlayerId);
 
 			// Conectar o sinal para atualizar a pontuação
-            player.Connect("ScoreUpdated", new Callable(scoreEntry, "SetScore"));
+			player.Connect("ScoreUpdated", new Callable(scoreEntry, "SetScore"));
 		}
 	}
 
 	private void UpdateScores()
-    {
-        foreach (Node child in scoreGrid.GetChildren())
-        {
-            if (child is ScoreEntry scoreEntry)
-            {
-                foreach (Node node in GetTree().GetNodesInGroup("players"))
-                {
-                    if (node is Player player && player.PlayerName == scoreEntry.GetNode<Label>("VBoxContainer/PlayerNameLabel").Text)
-                    {
-                        scoreEntry.SetScore(player.Score);
-                    }
-                }
-            }
-        }
-    }
+	{
+		foreach (Node child in scoreGrid.GetChildren())
+		{
+			if (child is ScoreEntry scoreEntry)
+			{
+				foreach (Node node in GetTree().GetNodesInGroup("players"))
+				{
+					if (node is Player player && player.PlayerName == scoreEntry.GetNode<Label>("VBoxContainer/PlayerNameLabel").Text)
+					{
+						scoreEntry.SetScore(player.Score);
+					}
+				}
+			}
+		}
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
